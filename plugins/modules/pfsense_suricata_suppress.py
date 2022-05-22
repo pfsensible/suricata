@@ -57,7 +57,7 @@ commands:
 '''
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.pfsensible.core.plugins.module_utils.suricata_suppress import PFSenseSuricataSuppressModule, SURICATA_SUPPRESS_ARGUMENT_SPEC
+from ansible_collections.pfsensible.suricata.plugins.module_utils.suricata_suppress import PFSenseSuricataSuppressModule, SURICATA_SUPPRESS_ARGUMENT_SPEC
 
 
 def main():
