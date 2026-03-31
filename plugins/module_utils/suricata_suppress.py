@@ -34,15 +34,8 @@ class PFSenseSuricataSuppressModule(PFSenseModuleBase):
     # init
     #
     def __init__(self, module, pfsense=None):
-        super(PFSenseSuricataSuppressModule, self).__init__(module, pfsense)
+        super(PFSenseSuricataSuppressModule, self).__init__(module, pfsense, package='suricata', root='suricata/suppress', node='item', create_root=True)
         self.name = "pfsense_suricata_suppress"
-        self.obj = dict()
-
-        pkgs_elt = self.pfsense.get_element('installedpackages')
-        self.suricata = pkgs_elt.find('suricata') if pkgs_elt is not None else None
-        self.root_elt = self.suricata.find('suppress') if self.suricata is not None else None
-        if self.root_elt is None:
-            self.module.fail_json(msg='Unable to find suppression list XML configuration entry. Are you sure suricata is installed?')
 
     ##############################
     # params processing
